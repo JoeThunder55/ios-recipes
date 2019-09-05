@@ -22,7 +22,6 @@ class DetailViewController: UIViewController {
     }
     
     func updateValues() {
-        
         nameLabel.text = delegate?.name
         instructionsTextField.text = delegate?.instructions
     }

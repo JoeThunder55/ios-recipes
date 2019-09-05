@@ -30,8 +30,10 @@ class RecipesTableViewCell: UITableViewCell {
     }
     
     func loadValues() {
-        
-        nameLabel.text = recipe?.name
+        guard let recipe = recipe else {
+            return}
+        nameLabel.text = recipe.name
+        print(recipe.name)
     }
 
 }

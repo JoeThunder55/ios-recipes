@@ -16,6 +16,7 @@
 		D70B25FB2320958200011B93 /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70B25FA2320958200011B93 /* RecipesViewController.swift */; };
 		D70B25FD2320958F00011B93 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70B25FC2320958F00011B93 /* DetailViewController.swift */; };
 		D70B26022320975C00011B93 /* RecipesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70B26012320975C00011B93 /* RecipesTableViewCell.swift */; };
+		D70B260A2320ABE400011B93 /* SearchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70B26092320ABE400011B93 /* SearchHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		D70B25FA2320958200011B93 /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
 		D70B25FC2320958F00011B93 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		D70B26012320975C00011B93 /* RecipesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableViewCell.swift; sourceTree = "<group>"; };
+		D70B26092320ABE400011B93 /* SearchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			children = (
 				D70B25FA2320958200011B93 /* RecipesViewController.swift */,
 				D70B25FC2320958F00011B93 /* DetailViewController.swift */,
+				D70B26092320ABE400011B93 /* SearchHelper.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				9DA0F07D2117E3F800A99E97 /* AppDelegate.swift in Sources */,
 				9D59B52C2117F533002FB7CD /* Recipe.swift in Sources */,
 				D70B26022320975C00011B93 /* RecipesTableViewCell.swift in Sources */,
+				D70B260A2320ABE400011B93 /* SearchHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

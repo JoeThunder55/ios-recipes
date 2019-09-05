@@ -10,45 +10,57 @@ import UIKit
 
 class RecipesViewController: UIViewController {
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
+    
     let networkController = RecipesNetworkClient()
-    var recipes: [Recipe] = []
+    var blah: [Recipe] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkController.fetchRecipes { recipes, Error? in
-            
-        }
-        // Do any additional setup after loading the view.
+        loadDataIntoArray()
+        tableView.reloadData()
+        
     }
     
-
+    func loadDataIntoArray() {
+        networkController.fetchRecipes { recipes, error in
+            if let error = error {
+                print("Hey Dude. There was an Error: \(error)")
+                return
+            }
+            self.blah = recipes ?? []
+            
+        }
+    }
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifer == "toDetailView" {
-            if let vc = segue.destination as? DetailViewController {
-                vc.delegate = recipes[indexPath.row]
+        if segue.identifier == "toDetailView" {
+            if let indexPath = tableView.indexPathForSelectedRow, let vc = segue.destination as? DetailViewController {
+                vc.delegate = blah[indexPath.row]
             }
         }
     }
-
 
 }
 
 extension RecipesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        recipes.count
+        return blah.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as? RecipesTableViewCell else {return UITableViewCell()}
+        let recipe = blah[indexPath.row]
+        print(recipe)
+        cell.recipe = recipe
+        cell.nameLabel.text = recipe.name
+        return cell
     }
-    
-    
-    
-    
+
     
     
 }
