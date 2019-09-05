@@ -12,23 +12,12 @@ import UIKit
 //MARK: - Search Bar Methods
 extension RecipesViewController: UISearchBarDelegate {
     
+  
     
-    
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        
-//        blah = blah.filter("firstName CONTAINS[cd] %@", searchBar.text).sorted(byKeyPath: "firstName", ascending: true)
-//        self.tableView.reloadData()
-//    }
-//    
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        if searchBar.text?.count == 0 {
-//            readRealm()
-//            
-//        } else {
-//            blah = blah.filter("firstName BEGINSWITH[cd] %@ OR lastName BEGINSWITH[cd] %@ OR phoneNumber BEGINSWITH[cd] %@", searchBar.text!, searchBar.text!, searchBar.text!).sorted(byKeyPath: "firstName", ascending: true)
-//            self.tableView.reloadData()
-//        }
-//    }
-    
-    
+    func searchBarSearchButtonTapped(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredData = searchText.isEmpty ? blah : blah.filter { (item: filteredData.name) -> Bool in
+            return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+    }
+        tableView.reloadData()
+    }
 }

@@ -27,48 +27,55 @@
                                     </searchBar>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qy4-AE-IKJ">
-                                <rect key="frame" x="0.0" y="212" width="375" height="455"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CiL-oX-cAs">
+                                <rect key="frame" x="0.0" y="205" width="375" height="462"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableCell" id="HFx-YJ-FGV" customClass="RecipesTableViewCell" customModule="Recipes" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCell" id="HNj-fq-zEX">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HFx-YJ-FGV" id="Bia-Hm-Xd7" customClass="TableViewCell" customModule="Recipes" customModuleProvider="target">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HNj-fq-zEX" id="vjz-ke-nD6" customClass="RecipesTableViewCell" customModule="Recipes" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbO-Ws-vwA">
-                                                    <rect key="frame" x="15" y="11.5" width="42" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYR-gR-XZN">
+                                                    <rect key="frame" x="20" y="-9" width="45" height="61.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="JbO-Ws-vwA" firstAttribute="leading" secondItem="Bia-Hm-Xd7" secondAttribute="leading" constant="15" id="NJP-zv-hLG"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qYR-gR-XZN" secondAttribute="trailing" constant="20" symbolic="YES" id="GeQ-Zf-I7m"/>
+                                                <constraint firstItem="qYR-gR-XZN" firstAttribute="leading" secondItem="vjz-ke-nD6" secondAttribute="leadingMargin" constant="5" id="fhp-Rd-l5q"/>
+                                                <constraint firstItem="qYR-gR-XZN" firstAttribute="top" secondItem="vjz-ke-nD6" secondAttribute="topMargin" constant="-20" id="nme-LD-Nli"/>
+                                                <constraint firstItem="qYR-gR-XZN" firstAttribute="centerY" secondItem="vjz-ke-nD6" secondAttribute="centerY" id="sDF-Em-fSC"/>
                                             </constraints>
+                                            <connections>
+                                                <outlet property="nameLabel" destination="qYR-gR-XZN" id="FgB-Gs-GB0"/>
+                                            </connections>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="nameLabel" destination="JbO-Ws-vwA" id="hHo-sh-Xcr"/>
-                                            <segue destination="e1u-Pr-KOx" kind="show" identifier="toDetailView" id="QRN-aR-wNS"/>
+                                            <segue destination="e1u-Pr-KOx" kind="show" identifier="toDetailView" id="DHU-wW-U6g"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="TOY-DK-qY2" id="sy2-CL-OvR"/>
+                                    <outlet property="dataSource" destination="TOY-DK-qY2" id="njG-R8-atD"/>
+                                    <outlet property="delegate" destination="TOY-DK-qY2" id="q8P-Kw-uPJ"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Qy4-AE-IKJ" firstAttribute="leading" secondItem="O31-bj-Dwh" secondAttribute="leading" id="3eP-I4-6rk"/>
                             <constraint firstItem="5TD-9o-RHM" firstAttribute="top" secondItem="SFR-E5-7bG" secondAttribute="top" constant="25" id="7gf-i8-tr0"/>
+                            <constraint firstItem="CiL-oX-cAs" firstAttribute="top" secondItem="5TD-9o-RHM" secondAttribute="bottom" constant="8" id="DDo-FN-gZZ"/>
+                            <constraint firstItem="CiL-oX-cAs" firstAttribute="bottom" secondItem="SFR-E5-7bG" secondAttribute="bottom" id="J8a-R8-x9t"/>
+                            <constraint firstItem="CiL-oX-cAs" firstAttribute="leading" secondItem="SFR-E5-7bG" secondAttribute="leading" id="QYm-fR-kle"/>
                             <constraint firstItem="5TD-9o-RHM" firstAttribute="leading" secondItem="SFR-E5-7bG" secondAttribute="leading" constant="15" id="T5L-As-lf1"/>
-                            <constraint firstItem="Qy4-AE-IKJ" firstAttribute="bottom" secondItem="SFR-E5-7bG" secondAttribute="bottom" id="WT3-DE-8iE"/>
-                            <constraint firstItem="Qy4-AE-IKJ" firstAttribute="centerX" secondItem="5TD-9o-RHM" secondAttribute="centerX" id="a7w-jb-sJf"/>
+                            <constraint firstItem="CiL-oX-cAs" firstAttribute="trailing" secondItem="SFR-E5-7bG" secondAttribute="trailing" id="TlD-0K-GTV"/>
                             <constraint firstItem="SFR-E5-7bG" firstAttribute="trailing" secondItem="5TD-9o-RHM" secondAttribute="trailing" constant="15" id="e5D-dr-pqZ"/>
-                            <constraint firstItem="Qy4-AE-IKJ" firstAttribute="top" secondItem="5TD-9o-RHM" secondAttribute="bottom" constant="15" id="swU-Ma-7Ui"/>
                             <constraint firstItem="5TD-9o-RHM" firstAttribute="centerX" secondItem="SFR-E5-7bG" secondAttribute="centerX" id="yjc-eJ-mtB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SFR-E5-7bG"/>
@@ -76,7 +83,7 @@
                     <navigationItem key="navigationItem" title="Recipes" id="G3N-gU-4ri"/>
                     <connections>
                         <outlet property="searchBar" destination="Btb-eh-Cj2" id="adH-cR-vSF"/>
-                        <outlet property="tableView" destination="Qy4-AE-IKJ" id="Rtr-Uj-jFl"/>
+                        <outlet property="tableView" destination="CiL-oX-cAs" id="gss-zY-VQ2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p5W-Jd-e4j" userLabel="First Responder" sceneMemberID="firstResponder"/>

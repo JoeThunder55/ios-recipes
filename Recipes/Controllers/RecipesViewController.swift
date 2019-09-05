@@ -15,12 +15,26 @@ class RecipesViewController: UIViewController {
     
     let networkController = RecipesNetworkClient()
     var blah: [Recipe] = []
+    var filteredName: Recipe
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadDataIntoArray()
-        tableView.reloadData()
         
+        networkController.fetchRecipes { recipes, error in
+            if let error = error {
+                print("Hey Dude. There was an Error: \(error)")
+                return
+            }
+            DispatchQueue.main.async {
+                self.blah = recipes ?? []
+                print(self.blah)
+                self.tableView.reloadData()
+                
+            }
+           
+        }
+        
+       
     }
     
     func loadDataIntoArray() {
@@ -30,7 +44,7 @@ class RecipesViewController: UIViewController {
                 return
             }
             self.blah = recipes ?? []
-            
+            print(self.blah)
         }
     }
     
@@ -47,20 +61,19 @@ class RecipesViewController: UIViewController {
 
 }
 
-extension RecipesViewController: UITableViewDataSource {
+extension RecipesViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellID = "TableCell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? RecipesTableViewCell
+        let theRecipe = self.blah[indexPath.row]
+//        cell?.recipe = theRecipe
+        cell?.nameLabel.text = theRecipe.name
+        cell?.nameLabel.textColor = .black
+        return cell ?? RecipesTableViewCell()
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return blah.count
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as? RecipesTableViewCell else {return UITableViewCell()}
-        let recipe = blah[indexPath.row]
-        print(recipe)
-        cell.recipe = recipe
-        cell.nameLabel.text = recipe.name
-        return cell
-    }
-
-    
     
 }
